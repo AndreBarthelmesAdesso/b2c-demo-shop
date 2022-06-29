@@ -1,3 +1,13 @@
 payment_method_key,payment_method_name,payment_provider_key,payment_provider_name,is_active
 dummyPaymentInvoice,Invoice,dummyPayment,Dummy Payment,1
 dummyPaymentCreditCard,Credit Card,dummyPayment,Dummy Payment,1
+computopCreditCard,Computop Credit Card,Computop,Computop,1
+computopDirectDebit,Computop Direct Debit,Computop,Computop,1
+computopEasyCredit,Computop Easycredit,Computop,Computop,1
+computopIdeal,Computop Ideal,Computop,Computop,1
+computopPaydirect,Computop Paydirect,Computop,Computop,1
+computopPayNow,Computop PayNow,Computop,Computop,1
+computopPayPal,Computop PayPal,Computop,Computop,1
+computopPayPalExpress,Computop PayPalExpress,Computop,Computop,1
+computopSofort,Computop Sofort,Computop,Computop,1
+computopPayuCeeSingle,Computop PayU CEE Single,Computop,Computop,1

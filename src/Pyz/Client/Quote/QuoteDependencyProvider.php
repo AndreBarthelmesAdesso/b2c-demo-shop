@@ -11,6 +11,7 @@ use Spryker\Client\Kernel\Container;
 use Spryker\Client\Price\Plugin\PriceModeQuoteTransferExpanderPlugin;
 use Spryker\Client\Quote\QuoteDependencyProvider as BaseQuoteDependencyProvider;
 use Spryker\Client\Store\Plugin\StoreQuoteTransferExpanderPlugin;
+use SprykerEco\Client\ComputopShipment\Quote\Dependency\Plugin\DefaultShippingMethodQuoteTransferExpanderPlugin;
 
 class QuoteDependencyProvider extends BaseQuoteDependencyProvider
 {
@@ -24,6 +25,7 @@ class QuoteDependencyProvider extends BaseQuoteDependencyProvider
         return [
             new StoreQuoteTransferExpanderPlugin(),
             new PriceModeQuoteTransferExpanderPlugin(),
+            new DefaultShippingMethodQuoteTransferExpanderPlugin(),
         ];
     }
 }

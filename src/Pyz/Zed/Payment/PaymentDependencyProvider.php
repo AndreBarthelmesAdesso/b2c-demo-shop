@@ -11,6 +11,8 @@ use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardPaymentMethodFilterPlugin;
 use Spryker\Zed\Nopayment\Communication\Plugin\Payment\PriceToPayPaymentMethodFilterPlugin;
 use Spryker\Zed\OauthClient\Communication\Plugin\Payment\AccessTokenPaymentAuthorizeRequestExpanderPlugin;
 use Spryker\Zed\Payment\PaymentDependencyProvider as SprykerPaymentDependencyProvider;
+use SprykerEco\Zed\Computop\Communication\Plugin\ComputopPaymentMethodFilterPlugin;
+use SprykerEco\Zed\Computop\Communication\Plugin\Payment\ComputopCurrencyPaymentMethodFilterPlugin;
 
 class PaymentDependencyProvider extends SprykerPaymentDependencyProvider
 {
@@ -22,6 +24,8 @@ class PaymentDependencyProvider extends SprykerPaymentDependencyProvider
         return [
             new PriceToPayPaymentMethodFilterPlugin(),
             new GiftCardPaymentMethodFilterPlugin(),
+            new ComputopCurrencyPaymentMethodFilterPlugin(),
+            new ComputopPaymentMethodFilterPlugin(),
         ];
     }
 

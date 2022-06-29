@@ -565,10 +565,118 @@ $config[GlueApplicationConstants::GLUE_APPLICATION_CORS_ALLOW_ORIGIN] = getenv('
 $config[OmsConstants::PROCESS_LOCATION] = [
     OmsConfig::DEFAULT_PROCESS_LOCATION,
     APPLICATION_ROOT_DIR . '/vendor/spryker/payment/config/Zed/Oms',
+    APPLICATION_ROOT_DIR . '/vendor/spryker-eco/computop/config/Zed/Oms',
 ];
-$config[OmsConstants::ACTIVE_PROCESSES] = [];
+$config[OmsConstants::ACTIVE_PROCESSES] = [
+    'ComputopPayNow01',
+    'ComputopCreditCard01',
+    'ComputopDirectDebit01',
+    'ComputopPaydirekt01',
+    'ComputopPayPal01',
+    'ComputopPayPalExpress01',
+    'ComputopSofort01',
+    'ComputopIdeal01',
+    'ComputopEasyCredit01',
+    'ComputopPayuCeeSingle01',
+];
 $config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
     PaymentConfig::PAYMENT_FOREIGN_PROVIDER => 'B2CStateMachine01',
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_PAY_NOW => 'ComputopPayNow01',
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_CREDIT_CARD => 'ComputopCreditCard01',
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_DIRECT_DEBIT => 'ComputopDirectDebit01',
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_PAYDIREKT => 'ComputopPaydirekt01',
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_PAY_PAL => 'ComputopPayPal01',
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_PAY_PAL_EXPRESS => 'ComputopPayPalExpress01',
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_SOFORT => 'ComputopSofort01',
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_IDEAL => 'ComputopIdeal01',
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_EASY_CREDIT => 'ComputopEasyCredit01',
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_PAYU_CEE_SINGLE => 'ComputopPayuCeeSingle01',
+];
+$config[\SprykerEco\Shared\ComputopShipment\ComputopShipmentConstants::PAYPAL_EXPRESS_DEFAULT_SHIPMENT_METHOD_KEY] = 'spryker_dummy_shipment-standard';
+$config[\SprykerEco\Shared\Computop\ComputopConstants::CRIF_ENABLED] = false;
+$config[\SprykerEco\Shared\Computop\ComputopConstants::CRIF_GREEN_AVAILABLE_PAYMENT_METHODS] = [
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_SOFORT,
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_PAYDIREKT,
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_IDEAL,
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_CREDIT_CARD,
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_PAY_NOW,
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_PAY_PAL,
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_PAY_PAL_EXPRESS,
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_DIRECT_DEBIT,
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_EASY_CREDIT,
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_PAYU_CEE_SINGLE,
+];
+$config[\SprykerEco\Shared\Computop\ComputopConstants::CRIF_YELLOW_AVAILABLE_PAYMENT_METHODS] = [
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_CREDIT_CARD,
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_PAY_NOW,
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_PAY_PAL,
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_PAY_PAL_EXPRESS,
+];
+$config[\SprykerEco\Shared\Computop\ComputopConstants::CRIF_RED_AVAILABLE_PAYMENT_METHODS] = [
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_CREDIT_CARD,
+];
+
+$config[\SprykerEco\Shared\Computop\ComputopConstants::PAYDIREKT_SHOP_KEY] = 'PAYDIREKT_SHOP_KEY'; //Set up real data
+
+$config[\SprykerEco\Shared\Computop\ComputopConstants::PAY_NOW_INIT_ACTION] = 'https://www.computop-paygate.com/paynow.aspx';
+$config[\SprykerEco\Shared\Computop\ComputopConstants::CREDIT_CARD_INIT_ACTION] = 'https://www.computop-paygate.com/payssl.aspx';
+$config[\SprykerEco\Shared\Computop\ComputopConstants::PAYPAL_INIT_ACTION] = 'https://www.computop-paygate.com/paypal.aspx';
+$config[\SprykerEco\Shared\Computop\ComputopConstants::DIRECT_DEBIT_INIT_ACTION] = 'https://www.computop-paygate.com/paysdd.aspx';
+$config[\SprykerEco\Shared\Computop\ComputopConstants::SOFORT_INIT_ACTION] = 'https://www.computop-paygate.com/sofort.aspx';
+$config[\SprykerEco\Shared\Computop\ComputopConstants::PAYDIREKT_INIT_ACTION] = 'https://www.computop-paygate.com/paydirekt.aspx';
+$config[\SprykerEco\Shared\Computop\ComputopConstants::IDEAL_INIT_ACTION] = 'https://www.computop-paygate.com/ideal.aspx';
+$config[\SprykerEco\Shared\Computop\ComputopConstants::EASY_CREDIT_INIT_ACTION] = 'https://www.computop-paygate.com/easyCredit.aspx';
+$config[\SprykerEco\Shared\Computop\ComputopConstants::PAYU_CEE_SINGLE_INIT_ACTION] = 'https://www.computop-paygate.com/payu.aspx';
+
+$config[\SprykerEco\Shared\Computop\ComputopConstants::IDEAL_ISSUER_ID] = 'IDEAL_ISSUER_ID'; //Set up real data
+
+$config[\SprykerEco\Shared\ComputopApi\ComputopApiConstants::CRIF_ACTION] = 'https://www.computop-paygate.com/deltavista.aspx';
+$config[\SprykerEco\Shared\ComputopApi\ComputopApiConstants::CRIF_PRODUCT_NAME] = \SprykerEco\Shared\Computop\ComputopConfig::CRIF_PRODUCT_NAME_QUICK_CHECK_CONSUMER;
+$config[\SprykerEco\Shared\ComputopApi\ComputopApiConstants::CRIF_LEGAL_FORM] = \SprykerEco\Shared\Computop\ComputopConfig::CRIF_LEGAL_FORM_PERSON;
+
+$config[\SprykerEco\Shared\ComputopApi\ComputopApiConstants::MERCHANT_ID] = 'removed'; //Set up real data
+$config[\SprykerEco\Shared\ComputopApi\ComputopApiConstants::BLOWFISH_PASSWORD] = 'removed'; //Set up real data
+$config[\SprykerEco\Shared\ComputopApi\ComputopApiConstants::HMAC_PASSWORD] = 'removed'; //Set up real data
+$config[\SprykerEco\Shared\ComputopApi\ComputopApiConstants::EASY_CREDIT_STATUS_ACTION] = 'https://www.computop-paygate.com/easyCreditDirect.aspx';
+$config[\SprykerEco\Shared\ComputopApi\ComputopApiConstants::EASY_CREDIT_AUTHORIZE_ACTION] = 'https://www.computop-paygate.com/easyCreditDirect.aspx';
+$config[\SprykerEco\Shared\ComputopApi\ComputopApiConstants::AUTHORIZE_ACTION] = 'https://www.computop-paygate.com/authorize.aspx';
+$config[\SprykerEco\Shared\ComputopApi\ComputopApiConstants::CAPTURE_ACTION] = 'https://www.computop-paygate.com/capture.aspx';
+$config[\SprykerEco\Shared\ComputopApi\ComputopApiConstants::REVERSE_ACTION] = 'https://www.computop-paygate.com/reverse.aspx';
+$config[\SprykerEco\Shared\ComputopApi\ComputopApiConstants::INQUIRE_ACTION] = 'https://www.computop-paygate.com/inquire.aspx';
+$config[\SprykerEco\Shared\ComputopApi\ComputopApiConstants::REFUND_ACTION] = 'https://www.computop-paygate.com/credit.aspx';
+
+$config[\SprykerEco\Shared\ComputopApi\ComputopApiConstants::RESPONSE_MAC_REQUIRED] = [
+    \SprykerEco\Shared\Computop\ComputopConfig::INIT_METHOD, // Todo: add methods in case of Paygate form connection
+]; //MAC is required for methods (to check MAC on response)
+
+$config[\SprykerEco\Shared\Computop\ComputopConstants::CREDIT_CARD_TEMPLATE_ENABLED] = false;
+
+$config[\SprykerEco\Shared\Computop\ComputopConstants::CREDIT_CARD_TX_TYPE] = '';
+$config[\SprykerEco\Shared\Computop\ComputopConstants::PAY_NOW_TX_TYPE] = '';
+$config[\SprykerEco\Shared\Computop\ComputopConstants::PAY_PAL_TX_TYPE] = \SprykerEco\Shared\Computop\ComputopConfig::TX_TYPE_AUTH;
+$config[\SprykerEco\Shared\Computop\ComputopConstants::PAY_PAL_EXPRESS_PAYPAL_METHOD] = \SprykerEco\Shared\Computop\ComputopConfig::PAY_PAL_EXPRESS_PAYPAL_METHOD;
+
+$config[\SprykerEco\Shared\Computop\ComputopConstants::PAYMENT_METHODS_WITHOUT_ORDER_CALL] = [
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_SOFORT,
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_PAYDIREKT,
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_IDEAL,
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_PAY_NOW,
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_CREDIT_CARD,
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_PAY_PAL,
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_PAY_PAL_EXPRESS,
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_DIRECT_DEBIT,
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_EASY_CREDIT,
+    \SprykerEco\Shared\Computop\ComputopConfig::PAYMENT_METHOD_PAYU_CEE_SINGLE,
+];
+
+$config[\SprykerEco\Shared\ComputopApi\ComputopApiConstants::PAYMENT_METHODS_CAPTURE_TYPES] = [
+    \SprykerEco\Shared\ComputopApi\ComputopApiConfig::PAYMENT_METHOD_PAYDIREKT => \SprykerEco\Shared\ComputopApi\ComputopApiConfig::CAPTURE_TYPE_MANUAL,
+    \SprykerEco\Shared\ComputopApi\ComputopApiConfig::PAYMENT_METHOD_CREDIT_CARD => \SprykerEco\Shared\ComputopApi\ComputopApiConfig::CAPTURE_TYPE_MANUAL,
+    \SprykerEco\Shared\ComputopApi\ComputopApiConfig::PAYMENT_METHOD_PAY_NOW => \SprykerEco\Shared\ComputopApi\ComputopApiConfig::CAPTURE_TYPE_MANUAL,
+    \SprykerEco\Shared\ComputopApi\ComputopApiConfig::PAYMENT_METHOD_PAY_PAL => \SprykerEco\Shared\ComputopApi\ComputopApiConfig::CAPTURE_TYPE_MANUAL,
+    \SprykerEco\Shared\ComputopApi\ComputopApiConfig::PAYMENT_METHOD_PAY_PAL_EXPRESS => \SprykerEco\Shared\ComputopApi\ComputopApiConfig::CAPTURE_TYPE_MANUAL,
+    \SprykerEco\Shared\ComputopApi\ComputopApiConfig::PAYMENT_METHOD_DIRECT_DEBIT => \SprykerEco\Shared\ComputopApi\ComputopApiConfig::CAPTURE_TYPE_MANUAL,
+    \SprykerEco\Shared\ComputopApi\ComputopApiConfig::PAYMENT_METHOD_PAYU_CEE_SINGLE => \SprykerEco\Shared\ComputopApi\ComputopApiConfig::CAPTURE_TYPE_MANUAL,
 ];
 
 // ----------------------------------------------------------------------------

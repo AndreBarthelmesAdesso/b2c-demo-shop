@@ -38,6 +38,8 @@ use Spryker\Zed\SalesOrderThreshold\Communication\Plugin\Checkout\SalesOrderThre
 use Spryker\Zed\SalesPayment\Communication\Plugin\Checkout\SalesPaymentCheckoutDoSaveOrderPlugin;
 use Spryker\Zed\Shipment\Communication\Plugin\Checkout\SalesOrderShipmentSavePlugin;
 use Spryker\Zed\ShipmentCheckoutConnector\Communication\Plugin\Checkout\ShipmentCheckoutPreCheckPlugin;
+use SprykerEco\Zed\Computop\Communication\Plugin\Checkout\ComputopPostCheckPlugin;
+use SprykerEco\Zed\Computop\Communication\Plugin\Checkout\ComputopSaveOrderPlugin;
 
 class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
 {
@@ -95,6 +97,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
             new SalesPaymentCheckoutDoSaveOrderPlugin(),
             new GiftCardCheckoutDoSaveOrderPlugin(),
             new SalesOrderThresholdExpenseSavePlugin(), #SalesOrderThresholdFeature
+            new ComputopSaveOrderPlugin(),
         ];
     }
 
@@ -109,6 +112,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
             new DummyPaymentCheckoutPostSavePlugin(),
             new SendEmailToGiftCardUser(), #GiftCardFeature
             new PaymentAuthorizationCheckoutPostSavePlugin(),
+            new ComputopPostCheckPlugin(),
         ];
     }
 

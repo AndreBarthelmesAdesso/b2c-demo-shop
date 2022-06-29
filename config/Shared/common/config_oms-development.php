@@ -41,6 +41,8 @@ $config[OmsConstants::ACTIVE_PROCESSES] = array_merge([
     'Nopayment01',
     'DummyPayment01',
     'B2CStateMachine01',
+    'ComputopPayPal01',
+    'ComputopPayPalExpress01',
 ], $config[OmsConstants::ACTIVE_PROCESSES]);
 
 $config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = array_replace(

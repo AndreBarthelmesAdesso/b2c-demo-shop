@@ -2,7 +2,22 @@
 
 {# customForms data property is necessary for Eco payments integrations #}
 {% define data = {
-    customForms: {},
+    backUrl: _view.previousStepUrl,
+    forms: {
+        payment: _view.paymentForm
+    },
+    title: 'checkout.step.payment.title' | trans,
+    customForms: {
+        'Computop/credit-card': ['credit-card', 'computop'],
+        'Computop/direct-debit': ['direct-debit', 'computop'],
+        'Computop/easy-credit': ['easy-credit', 'computop'],
+        'Computop/ideal': ['ideal', 'computop'],
+        'Computop/paydirekt': ['paydirekt', 'computop'],
+        'Computop/paynow': ['paynow', 'computop'],
+        'Computop/paypal': ['paypal', 'computop'],
+        'Computop/sofort': ['sofort', 'computop'],
+        'Computop/payu-cee-single': ['payu-cee-single', 'computop'],
+    }
 } %}
 
 {% block content %}

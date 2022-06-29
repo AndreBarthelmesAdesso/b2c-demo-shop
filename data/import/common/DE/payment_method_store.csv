@@ -1,3 +1,11 @@
 payment_method_key,store
-dummyPaymentInvoice,DE
-dummyPaymentCreditCard,DE
+computopCreditCard,DE
+computopDirectDebit,DE
+computopEasyCredit,DE
+computopIdeal,DE
+computopPaydirect,DE
+computopPayNow,DE
+computopPayPal,DE
+computopPayPalExpress,DE
+computopSofort,DE
+computopPayuCeeSingle,DE
